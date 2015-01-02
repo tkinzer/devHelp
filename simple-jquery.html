@@ -1,0 +1,98 @@
+<html>
+<head>
+	
+	<title> TEST ENVIRONMENT FOR JQUERY </title>
+
+<!-- CSS -->
+<style>
+#test {
+	background:black;
+	color:white;
+	height:200px;
+	width:100%;
+}
+
+#test-border-shadows {
+
+}
+
+#test-css3-animate {
+
+    -webkit-animation: myfirst 5s; /* Chrome, Safari, Opera */
+    animation: myfirst 5s;
+
+    background:red;
+    height:40px;
+    width:40px;
+
+}
+
+.test-class {
+	border-radius:50%; /* Makes it a circle */
+
+}
+
+/* MAKE TWO WITH BOTH SYNTAXES TO MAKE COMPATIBLE */
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+    from {background: red;}
+    to {background: yellow;}
+}
+
+/* Standard syntax */
+@keyframes myfirst {
+    from {background: red;}
+    to {background: yellow;}
+}
+
+
+
+</style>
+
+
+</head>
+<body>
+
+
+<!-- DOM ELEMENTS -->
+
+<div id="test" class="test-class"></div>
+
+<!-- IDS must be unique ie no double id naming ex. id="test"-->
+<div id="test-css3-animate" class="test-class"></div>
+
+
+<!-- INCLUDE JQUERY -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<!-- JQUERY SCRIPT -->
+<script>
+// . - class name reference
+// # - id name reference
+
+	$('#test').click(function(){
+		//order matters for execute
+		//alert('Hello World'); would cause popup first
+		
+		//USE CONSOLE.LOG instead of alert for chrome development
+		console.log("Testing log output");
+		console.log("Second line");
+
+		$('.test-class').toggle('hide');
+
+		//goes after toggle hide
+		alert('Hello World');
+
+		console.log("stupid order of execution... dir");
+
+
+	});
+
+	//HIDE BOTH WITH CLASS NAME
+	//$('.test-class').hide(); //toggle('hide')
+	
+</script>
+</body>
+</html>
